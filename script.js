@@ -1,7 +1,4 @@
-/* =====================================================
-   Data — defaults. Live data is stored in localStorage
-   under 'ztt_portfolio' and edited via the admin panel.
-===================================================== */
+
 const ADMIN_PASS = "972004";
 const STORE_KEY = "ztt_portfolio_v2";
 
