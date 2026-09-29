@@ -1,107 +1,104 @@
 
-const ADMIN_PASS = "972004";
-const STORE_KEY = "ztt_portfolio_v2";
+/* Admin password — only a salted PBKDF2 hash is stored, never the password itself.
+   Leave ADMIN_HASH empty and triple-click the "AkihiroLabs apps" label to create one;
+   the setup screen shows the exact line to paste here. */
+const ADMIN_HASH = "";
+const STORE_KEY = "akihirolabs_site_v1"; // new key for the AkihiroLabs rebrand (old key: ztt_portfolio_v2)
+const GH = "https://github.com/AkihiroZayar/";
+const LIVE = "https://akihirozayar.github.io/";
+const DISCORD = "https://discord.gg/RwHzT7X85";
 
 const DEFAULT_DATA = {
-  avatar: null, // base64 photo set from admin; raccoon 🦝 when null
+  avatar: null, // optional image set from admin; the AkihiroLabs badge is shown when null
   hero: {
-    eyebrow: {en:"Akihiro Labs · Tokyo", ja:"Akihiro Labs · 東京"},
-    title:   {en:"I’m <span>Zayar</span>, a Web Developer", ja:"<span>ゼーア</span>です。<br>ウェブ開発者"},
-    sub:     {en:"Student developer in Tokyo building real-world web apps — a POS system, Japanese learning tools, business software, and more.",
-              ja:"東京の学生開発者。POSシステム、日本語学習ツール、業務アプリなど、実際に使えるWebアプリを開発しています。"},
-    side1h:  {en:"About me", ja:"私について"},
-    side1p:  {en:"I design and ship complete products under my indie brand, Akihiro Labs.", ja:"個人ブランド「Akihiro Labs」で、企画からリリースまで一人で行っています。"},
-    side2h:  {en:"My work", ja:"制作物"},
-    side2p:  {en:"From a full point-of-sale system to a kanji reading tool for Japanese learners.", ja:"本格的なPOSシステムから、日本語学習者向けの漢字読みツールまで。"},
-    followh: {en:"Follow me", ja:"フォロー"}
+    eyebrow: {en:"AkihiroLabs · Tokyo", ja:"AkihiroLabs · 東京"},
+    title:   {en:"Small apps,<br><span>made to be used.</span>", ja:"毎日使える、<br><span>小さなアプリ。</span>"},
+    sub:     {en:"AkihiroLabs is a one-person indie studio in Tokyo. Every app runs in your browser, keeps your data on your own device, and speaks English, 日本語 and မြန်မာ.",
+              ja:"AkihiroLabsは東京のひとり開発スタジオです。どのアプリもブラウザだけで動き、データは自分の端末に保存。英語・日本語・ミャンマー語に対応しています。"},
+    side1h:  {en:"The studio", ja:"スタジオ"},
+    side1p:  {en:"Founded by Akihiro, a student developer in Tokyo. Every app is designed, built and shipped solo.", ja:"東京の学生開発者Akihiroが運営。企画・デザイン・開発・リリースまで一人で行っています。"},
+    side2h:  {en:"The apps", ja:"アプリ"},
+    side2p:  {en:"From a full point-of-sale system to a furigana tool and a Discord bot.", ja:"本格的なPOSシステムから、ふりがなツール、Discordボットまで。"},
+    followh: {en:"Follow", ja:"フォロー"}
   },
   socials: [
-    {icon:"⌥", label:"GitHub", url:"#"},
-    {icon:"📷", label:"Instagram", url:"https://instagram.com/"},
-    {icon:"✉", label:"Email", url:"#"}
+    {icon:"⌥", label:"GitHub", url:"https://github.com/AkihiroZayar"},
+    {icon:"💬", label:"Discord", url:DISCORD}
   ],
   about: {
-    heading: {en:"I build software people actually use", ja:"実際に使われるソフトウェアを作る"},
-    text: {en:"Every Akihiro Labs app is designed to be simple to run and reliable to use — it works right in the browser, keeps data on your own device, and needs no installation. I build in three languages (English, Japanese, Burmese) with a consistent dark design system, and Byte the raccoon 🦝 shows up across all my apps.",
-           ja:"Akihiro Labsのアプリは、ブラウザだけで動き、データは自分の端末に保存され、インストール不要。誰でもすぐ使えるように設計しています。英語・日本語・ミャンマー語の3言語に対応し、統一されたダークテーマとマスコットのバイト🦝が全アプリ共通です。"},
+    heading: {en:"Built simple. Built to last.", ja:"シンプルに、長く使えるように。"},
+    text: {en:"Every AkihiroLabs app is designed to be simple to run and reliable to use: it works right in the browser, keeps data on your own device, and needs no account or install.\n\nThe apps are written in plain JavaScript — no heavy frameworks — and built in three languages: English, Japanese and Burmese. Byte the raccoon 🦝 is the studio mascot and shows up across the apps.",
+           ja:"AkihiroLabsのアプリは、ブラウザだけで動き、データは自分の端末に保存され、アカウントもインストールも不要。誰でもすぐ使えるように設計しています。\n\nフレームワークに頼らずプレーンなJavaScriptで開発し、英語・日本語・ミャンマー語の3言語に対応。マスコットのバイト🦝が各アプリに登場します。"},
     stats: [
-      {num:"10", suffix:"+", label:{en:"Apps shipped", ja:"リリースしたアプリ"},
-       desc:{en:"Complete products, from a POS system to study tools.", ja:"POSから学習ツールまで、完成品として。"}},
-      {num:"3", suffix:"", label:{en:"Languages supported", ja:"対応言語"},
-       desc:{en:"English, Japanese, and Burmese — built into the apps themselves.", ja:"英語・日本語・ミャンマー語をアプリに標準搭載。"}}
+      {num:"7", suffix:"", label:{en:"Apps shipped", ja:"公開中のアプリ"},
+       desc:{en:"Live on GitHub Pages or running on Discord.", ja:"GitHub PagesとDiscordで公開中。"}},
+      {num:"3", suffix:"", label:{en:"Languages", ja:"対応言語"},
+       desc:{en:"English, Japanese and Burmese — built into the apps.", ja:"英語・日本語・ミャンマー語をアプリに標準搭載。"}}
     ]
   },
   strip: {
-    label: {en:"Akihiro Labs products", ja:"Akihiro Labs 製品"},
-    items: ["◆ AkiPOS","漢 Kanji Bridge","👥 HiroCrew","¥ Income Tracker","⌗ NumConv"]
+    label: {en:"AkihiroLabs apps", ja:"AkihiroLabs アプリ"},
+    items: ["◆ AkiPOS","¥ ShiftPay","🔔 ByteBell","漢 Kanji Bridge","0x NumConv","⏱ Cyber Clock","🦝 Byte Utility"]
   },
-  skillsHeading: {en:"My extensive list of skills", ja:"幅広いスキルセット"},
+  skillsHeading: {en:"What goes into every app", ja:"すべてのアプリに込めているもの"},
   skills: [
-    {icon:"⚡", title:{en:"JavaScript", ja:"JavaScript"}, desc:{en:"Building complete apps: state, UI, and logic from the ground up.", ja:"状態管理からUIまで、アプリをゼロから構築。"}},
-    {icon:"🗄️", title:{en:"Local-first data", ja:"ローカルファースト"}, desc:{en:"Offline-capable storage for real business data.", ja:"実データを扱うオフライン対応の保存設計。"}},
-    {icon:"🎨", title:{en:"UI & dark theme design", ja:"UI・ダークテーマ設計"}, desc:{en:"A consistent design system across every product.", ja:"全製品で統一されたデザインシステム。"}},
-    {icon:"🇯🇵", title:{en:"Japanese language tech", ja:"日本語処理"}, desc:{en:"Text analysis, furigana, and JLPT-aware study tools.", ja:"形態素解析、ふりがな、JLPT対応学習ツール。"}},
-    {icon:"📊", title:{en:"Charts & PDF export", ja:"グラフ・PDF出力"}, desc:{en:"Dashboards, receipts, and reports users can download.", ja:"ダッシュボード、レシート、レポートの出力。"}},
-    {icon:"☕", title:{en:"Java", ja:"Java"}, desc:{en:"Console apps and games — logic, types, and OOP.", ja:"コンソールアプリやゲーム。ロジックとOOP。"}},
-    {icon:"🔧", title:{en:"C", ja:"C言語"}, desc:{en:"Programming fundamentals from my IT studies — memory, pointers, and logic.", ja:"IT授業で学ぶ基礎。メモリ、ポインタ、ロジック。"}},
-    {icon:"⚙️", title:{en:"C++", ja:"C++"}, desc:{en:"Object-oriented programming and problem solving.", ja:"オブジェクト指向プログラミングと問題解決。"}},
-    {icon:"🛢️", title:{en:"Oracle / SQL", ja:"Oracle / SQL"}, desc:{en:"Relational databases: tables, queries, and data design.", ja:"リレーショナルDB。テーブル設計とクエリ。"}},
-    {icon:"🌐", title:{en:"Multilingual UX", ja:"多言語UX"}, desc:{en:"EN / JA / MY interfaces, including Burmese script.", ja:"英・日・緬の切替。ミャンマー文字にも対応。"}},
-    {icon:"🚀", title:{en:"Shipping products", ja:"製品リリース"}, desc:{en:"From idea to v10 — iterating until it’s genuinely done.", ja:"アイデアからv10まで。完成するまで改善を重ねる。"}}
+    {icon:"⚡", title:{en:"Vanilla JavaScript", ja:"Vanilla JavaScript"}, desc:{en:"Complete apps with no heavy frameworks or build tools.", ja:"重いフレームワークやビルドツールなしで完成させる。"}},
+    {icon:"🗄️", title:{en:"Local-first data", ja:"ローカルファースト"}, desc:{en:"localStorage and IndexedDB — your data stays on your device.", ja:"localStorage・IndexedDBで、データは自分の端末に。"}},
+    {icon:"🎨", title:{en:"One design system", ja:"統一デザイン"}, desc:{en:"Navy, white and cyan — the same look across every product.", ja:"ネイビー・白・シアン。全製品で同じデザイン。"}},
+    {icon:"🌐", title:{en:"Trilingual UX", ja:"3言語UX"}, desc:{en:"English / 日本語 / မြန်မာ, including Burmese script.", ja:"英・日・緬の切替。ミャンマー文字にも対応。"}},
+    {icon:"🇯🇵", title:{en:"Japanese language tech", ja:"日本語処理"}, desc:{en:"Morphological analysis, furigana and JLPT study tools.", ja:"形態素解析、ふりがな、JLPT学習ツール。"}},
+    {icon:"📊", title:{en:"Charts & export", ja:"グラフ・出力"}, desc:{en:"Dashboards plus PDF, Excel and CSV reports.", ja:"ダッシュボードとPDF・Excel・CSVレポート。"}},
+    {icon:"📲", title:{en:"PWA & push", ja:"PWA・プッシュ通知"}, desc:{en:"Installable apps with offline mode and Web Push.", ja:"インストール可能、オフライン対応、Web Push通知。"}},
+    {icon:"🚀", title:{en:"Shipping & versioning", ja:"リリース管理"}, desc:{en:"Semantic versions, changelogs and GitHub Pages deploys.", ja:"セマンティックバージョニング、変更履歴、GitHub Pagesで公開。"}}
   ],
-  projHeading: {en:"Featured projects", ja:"主なプロジェクト"},
+  projHeading: {en:"The apps", ja:"アプリ一覧"},
   projects: [
-    {icon:"◆", tag:{en:"Flagship", ja:"主力製品"}, title:"AkiPOS",
-     desc:{en:"Full point-of-sale system: staff PIN login, customer tabs, happy hour pricing, Burmese/English toggle, and PDF receipts. 10 versions strong.",
-           ja:"本格POSシステム。スタッフPINログイン、顧客タブ、ハッピーアワー割引、緬英切替、PDFレシート。v10まで進化。"},
-     tech:["POS","PDF receipts","Offline"]},
-    {icon:"漢", tag:{en:"Language", ja:"言語"}, title:"Kanji Bridge 漢字ブリッジ",
-     desc:{en:"Furigana generator with Japanese text analysis, JLPT-level coloring, and share-via-URL — smooth even on long texts.",
-           ja:"ふりがな生成ツール。JLPTレベル色分け、URL共有対応。長文でもスムーズに動作。"},
-     tech:["Furigana","JLPT","Share URL"]},
-    {icon:"👥", tag:{en:"Business", ja:"業務"}, title:"HiroCrew",
-     desc:{en:"Employee management for Akihiro Labs: shift scheduling, attendance kiosk, payroll, and an admin dashboard.",
-           ja:"従業員管理アプリ。シフト管理、勤怠キオスク、給与計算、管理ダッシュボード。"},
-     tech:["Shifts","Payroll","Dashboard"]},
-    {icon:"¥", tag:{en:"Finance", ja:"家計"}, title:"Hiro's Income Tracker",
-     desc:{en:"Japan-specific wage and tax tracker with calendar shifts, charts, and PDF/Excel export.",
-           ja:"日本の給与・税金に特化したトラッカー。カレンダー、グラフ、PDF/Excel出力。"},
-     tech:["Calendar","Charts","Export"]},
-    {icon:"🃏", tag:{en:"Language", ja:"言語"}, title:"Kanji Flashcards",
-     desc:{en:"Spaced-repetition kanji study with JLPT N5–N1 decks, reading quizzes, and Byte 🦝 reactions.",
-           ja:"間隔反復による漢字学習。JLPT N5〜N1、読みクイズ、バイト🦝のリアクション付き。"},
-     tech:["Spaced repetition","JLPT","Quiz"]},
-    {icon:"⌗", tag:{en:"Utility", ja:"ツール"}, title:"NumConv",
-     desc:{en:"Number system converter with a hacker-terminal look — binary, octal, decimal, hex.",
-           ja:"ハッカー風ターミナルUIの進数変換ツール。2進・8進・10進・16進に対応。"},
-     tech:["Terminal UI","Converter"]},
-    {icon:"🖥️", tag:{en:"Internal", ja:"社内ツール"}, title:"Akihiro Labs Dashboard",
-     desc:{en:"Personal admin hub for all Akihiro Labs apps: responsive design, automatic site status checks, and Byte 🦝 throughout.",
-           ja:"Akihiro Labs全アプリの管理ハブ。レスポンシブ対応、サイト自動チェック、バイト🦝が全面に登場。"},
-     tech:["Dashboard","Status checks","Responsive"]},
-    {icon:"🥁", tag:{en:"School", ja:"学校"}, title:"Hsaing Waing Website",
-     desc:{en:"Five-page Japanese-language website introducing Myanmar's Hsaing Waing orchestra, with animations and a dark lacquerware theme, plus a matching presentation.",
-           ja:"ミャンマーのサインワイン楽団を紹介する日本語5ページのサイト。アニメーションと漆器風ダークテーマ、プレゼン資料付き。"},
-     tech:["Culture","Animation","Presentation"]},
-    {icon:"🎯", tag:{en:"Game", ja:"ゲーム"}, title:"Hit and Blow",
-     desc:{en:"Mastermind-style number guessing game written in Java — guess the secret digits from hit & blow hints.",
-           ja:"Javaで作った数当てゲーム（マスターマインド型）。ヒットとブローのヒントから正解を推理。"},
-     tech:["Java","Console game","Logic"]},
-    {icon:"🌐", tag:{en:"Web", ja:"ウェブ"}, title:"This Portfolio",
-     desc:{en:"The site you're looking at: bilingual EN/JP, animated, with a hidden admin panel for editing every section.",
-           ja:"今ご覧のサイト。日英バイリンガル、アニメーション付き、全セクション編集可能な隠し管理パネル搭載。"},
-     tech:["Bilingual","Admin panel","Animation"]}
+    {logo:"assets/app-akihirolabs-pos.png", icon:"◆", tag:{en:"Flagship", ja:"主力製品"}, title:"AkihiroLabs POS",
+     desc:{en:"Point-of-sale for bars, cafés and small shops: staff PIN login, customer tabs, happy hour, inventory alerts, and PDF/CSV reports with Burmese support.",
+           ja:"バー・カフェ・小売店向けPOS。スタッフPINログイン、顧客タブ、ハッピーアワー、在庫アラート、ミャンマー語対応のPDF/CSVレポート。"},
+     tech:["IndexedDB","EN / MY","v10"], live:LIVE+"akihirolabs-pos/", repo:GH+"akihirolabs-pos"},
+    {logo:"assets/app-shiftpay.png", icon:"¥", tag:{en:"Finance", ja:"収入管理"}, title:"ShiftPay",
+     desc:{en:"Calendar-based income tracker for part-time workers in Japan — holiday rates, taxes, 年収の壁 progress and PDF/Excel export.",
+           ja:"日本のアルバイト向けカレンダー型収入トラッカー。祝日レート、税金、年収の壁、PDF/Excel出力。"},
+     tech:["Calendar","Charts","Export"], live:LIVE+"shiftpay/", repo:GH+"shiftpay"},
+    {logo:"assets/app-bytebell.png", icon:"🔔", tag:{en:"Productivity", ja:"生産性"}, title:"ByteBell",
+     desc:{en:"Your weekly timetable with smart reminders — an installable PWA with Web Push for iPhone and Android.",
+           ja:"週間時間割とスマートリマインダー。iPhone・Android対応、Web Push通知付きのPWA。"},
+     tech:["PWA","Web Push","EN / JA / MY"], live:LIVE+"bytebell/", repo:GH+"bytebell"},
+    {logo:"assets/app-kanji-bridge.png", icon:"漢", tag:{en:"Language", ja:"言語"}, title:"Kanji Bridge 漢字ブリッジ",
+     desc:{en:"Paste any Japanese text and get furigana above every kanji — then export it as a PDF.",
+           ja:"日本語の文章を貼り付けるだけで、すべての漢字にふりがなを表示。PDFで保存できます。"},
+     tech:["Kuromoji","Furigana","PDF"], live:LIVE+"kanji-bridge/", repo:GH+"kanji-bridge"},
+    {logo:"assets/app-numconv.png", icon:"0x", tag:{en:"Study", ja:"学習"}, title:"NumConv",
+     desc:{en:"Number system converter for decimal, binary, hex and octal — with step-by-step breakdowns, tables and a quiz.",
+           ja:"10進・2進・16進・8進の変換ツール。計算手順、早見表、クイズ付き。"},
+     tech:["Converter","Quiz","ASCII"], live:LIVE+"numconv/", repo:GH+"numconv"},
+    {logo:"assets/app-cyber-clock.png", icon:"⏱", tag:{en:"Focus", ja:"集中"}, title:"Cyber Clock",
+     desc:{en:"A neon desk clock with time-aware messages and a distraction-free focus mode.",
+           ja:"時間帯でメッセージが変わるネオン風デスククロック。集中モード付き。"},
+     tech:["Canvas","Focus mode"], live:LIVE+"cyber-clock/", repo:GH+"cyber-clock"},
+    {logo:"assets/app-utility-bot.png", icon:"🦝", tag:{en:"Discord bot", ja:"Discordボット"}, title:"Byte Utility",
+     desc:{en:"The AkihiroLabs Discord bot — Byte greets the server in JST, welcomes new members and keeps spam away.",
+           ja:"AkihiroLabsのDiscordボット。JSTで挨拶、新メンバーの歓迎、スパム対策。"},
+     tech:["discord.js","Node.js","Slash commands"], live:DISCORD, liveLabel:{en:"Meet Byte ↗", ja:"Byteに会う ↗"}, repo:GH+"utility-bot"}
+  ],
+  labHeading: {en:"In the lab", ja:"開発中"},
+  labSub: {en:"Not public yet — follow along on Discord.", ja:"まだ非公開。進捗はDiscordで。"},
+  lab: [
+    {icon:"👥", title:"HiroCrew", desc:{en:"Employee management with a kiosk-style attendance screen.", ja:"キオスク型の勤怠画面を備えた従業員管理アプリ。"}},
+    {icon:"📚", title:"LibroHiro", desc:{en:"A library management system for community libraries.", ja:"地域図書館のための図書館管理システム。"}},
+    {icon:"🃏", title:"KanjiFlash", desc:{en:"JLPT kanji quiz app with a trilingual UI.", ja:"3言語UIのJLPT漢字クイズアプリ。"}}
   ],
   contact: {
-    heading: {en:"Let's build something together", ja:"一緒に何か作りましょう"},
-    text: {en:"Have a project idea, feedback on an Akihiro Labs app, or just want to say hi? My inbox is open.",
-           ja:"プロジェクトのアイデア、Akihiro Labsアプリへのフィードバック、雑談でも大歓迎です。"},
-    cta: {en:"Get in touch", ja:"連絡する"},
-    email: "hello@example.com"
+    heading: {en:"Come say hi on Discord", ja:"Discordで会いましょう"},
+    text: {en:"New releases, feedback and behind-the-scenes updates all happen on the AkihiroLabs Discord server. Byte 🦝 will greet you.",
+           ja:"新しいリリース、フィードバック、開発の裏側はAkihiroLabsのDiscordサーバーで。バイト🦝がお出迎えします。"},
+    cta: {en:"Join the Discord", ja:"Discordに参加"},
+    url: DISCORD
   },
   footer: {
-    left: "© 2026 Zayar Thet Tun · Akihiro Labs 🦝",
-    right: {en:"Designed & built by Zayar.", ja:"デザイン・開発：ゼーア"}
+    left: "© 2026 AkihiroLabs 🦝",
+    right: {en:"Made in Tokyo by Akihiro.", ja:"東京でAkihiroが制作。"}
   }
 };
 
@@ -125,15 +122,16 @@ function esc(s){ const d=document.createElement('div'); d.textContent=s??""; ret
 ===================================================== */
 const NAV_ITEMS = [
   {href:"#top", en:"Home", ja:"ホーム"},
-  {href:"#about", en:"About", ja:"私について"},
-  {href:"#skills", en:"Skills", ja:"スキル"},
-  {href:"#projects", en:"Projects", ja:"プロジェクト"},
+  {href:"#about", en:"Studio", ja:"スタジオ"},
+  {href:"#projects", en:"Apps", ja:"アプリ"},
+  {href:"#skills", en:"Toolbox", ja:"技術"},
   {href:"#contact", en:"Contact", ja:"お問い合わせ"}
 ];
 const LABELS = {
-  about:{en:"About me",ja:"私について"}, skills:{en:"My skills",ja:"スキル"},
-  work:{en:"My work",ja:"制作物"}, contact:{en:"Contact",ja:"お問い合わせ"},
-  learnMore:{en:"Learn more →",ja:"もっと見る →"}, browse:{en:"Browse portfolio →",ja:"作品を見る →"}
+  about:{en:"The studio",ja:"スタジオについて"}, skills:{en:"Toolbox",ja:"技術"},
+  work:{en:"Apps",ja:"アプリ"}, contact:{en:"Community",ja:"コミュニティ"},
+  learnMore:{en:"About the studio →",ja:"スタジオについて →"}, browse:{en:"See the apps →",ja:"アプリを見る →"},
+  open:{en:"Open app ↗",ja:"アプリを開く ↗"}, code:{en:"GitHub",ja:"GitHub"}
 };
 
 function render(){
@@ -156,9 +154,9 @@ function render(){
       DATA.socials.map(s=>`<a href="${esc(s.url)}" aria-label="${esc(s.label)}" title="${esc(s.label)}" target="_blank" rel="noopener">${esc(s.icon)}</a>`).join("")
     }</div></div>`;
 
-  // Avatar (photo if uploaded, otherwise Byte the raccoon)
+  // Avatar (uploaded image if set, otherwise the AkihiroLabs badge)
   document.getElementById('avatar').innerHTML =
-    DATA.avatar ? `<img src="${DATA.avatar}" alt="Zayar Thet Tun">` : "🦝";
+    DATA.avatar ? `<img src="${DATA.avatar}" alt="AkihiroLabs">` : `<img class="studio" src="assets/logo.png" alt="AkihiroLabs">`;
 
   // About
   document.getElementById('aboutLabel').textContent = LABELS.about[lang];
@@ -187,11 +185,22 @@ function render(){
   document.getElementById('projHeading').textContent = t(DATA.projHeading);
   document.getElementById('projGrid').innerHTML = DATA.projects.map((p,i)=>`
     <div class="proj reveal" style="transition-delay:${(i%3)*110}ms">
-      <div class="top"><span class="ic">${esc(p.icon)}</span><span class="tag">${esc(t(p.tag))}</span></div>
+      <div class="top">${p.logo ? `<img class="logo-img" src="${esc(p.logo)}" alt="" width="56" height="56" loading="lazy">` : `<span class="ic">${esc(p.icon)}</span>`}<span class="tag">${esc(t(p.tag))}</span></div>
       <h3>${esc(p.title)}</h3>
       <p>${esc(t(p.desc))}</p>
       <div class="tech">${(p.tech||[]).map(x=>`<span>${esc(x)}</span>`).join("")}</div>
+      ${(p.live||p.repo) ? `<div class="links">${
+        p.live ? `<a class="primary" href="${esc(p.live)}" target="_blank" rel="noopener">${esc(p.liveLabel ? t(p.liveLabel) : LABELS.open[lang])}</a>` : ""}${
+        p.repo ? `<a href="${esc(p.repo)}" target="_blank" rel="noopener">${LABELS.code[lang]}</a>` : ""}</div>` : ""}
     </div>`).join("");
+
+  // In the lab (not public yet)
+  const lab = DATA.lab || [];
+  const labHead = document.getElementById('labHeading');
+  labHead.hidden = !lab.length;
+  labHead.innerHTML = `${esc(t(DATA.labHeading))}<small>${esc(t(DATA.labSub))}</small>`;
+  document.getElementById('labGrid').innerHTML = lab.map((l,i)=>`
+    <div class="lab reveal" style="transition-delay:${(i%3)*90}ms"><span class="ic">${esc(l.icon)}</span><div><h3>${esc(l.title)}</h3><p>${esc(t(l.desc))}</p></div></div>`).join("");
 
   // Contact
   document.getElementById('contactLabel').textContent = LABELS.contact[lang];
@@ -199,7 +208,8 @@ function render(){
   document.getElementById('contactText').textContent = t(DATA.contact.text);
   const cta = document.getElementById('contactCta');
   cta.textContent = t(DATA.contact.cta);
-  cta.href = "mailto:" + DATA.contact.email;
+  cta.href = DATA.contact.url || (DATA.contact.email ? "mailto:" + DATA.contact.email : "#");
+  if(/^https?:/.test(cta.href)){ cta.target = "_blank"; cta.rel = "noopener"; }
 
   // Footer
   document.getElementById('footLeft').textContent = DATA.footer.left;
@@ -253,7 +263,7 @@ const io = new IntersectionObserver(entries=>{
 function observeReveals(){ document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el)); }
 
 /* =====================================================
-   Hidden admin: triple-click "Akihiro Labs products"
+   Hidden admin: triple-click the "AkihiroLabs apps" strip label
 ===================================================== */
 let clickCount = 0, clickTimer = null;
 document.getElementById('stripLbl').addEventListener('click', ()=>{
@@ -268,25 +278,94 @@ document.getElementById('stripLbl').addEventListener('click', ()=>{
 
 const loginOverlay = document.getElementById('loginOverlay');
 const pwInput = document.getElementById('pwInput');
+const pwInput2 = document.getElementById('pwInput2');
 const pwErr = document.getElementById('pwErr');
+const pwGo = document.getElementById('pwGo');
+const LOCAL_HASH_KEY = "akihirolabs_admin_hash";
+const PBKDF2_ITERS = 310000;
+let failCount = 0, lockUntil = 0, justCreated = false;
 
+const toHex = b => [...b].map(x=>x.toString(16).padStart(2,'0')).join('');
+const fromHex = h => new Uint8Array(h.match(/../g).map(x=>parseInt(x,16)));
+function localGet(k){ try{ return localStorage.getItem(k); }catch(_){ return null; } }
+function localSet(k,v){ try{ localStorage.setItem(k,v); }catch(_){} }
+function storedHash(){ return ADMIN_HASH || localGet(LOCAL_HASH_KEY) || ""; }
+function cryptoReady(){ return !!(window.crypto && crypto.subtle); }
+
+async function pbkdf2(pass, saltHex, iters){
+  const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(pass), 'PBKDF2', false, ['deriveBits']);
+  const bits = await crypto.subtle.deriveBits({name:'PBKDF2', salt:fromHex(saltHex), iterations:iters, hash:'SHA-256'}, key, 256);
+  return toHex(new Uint8Array(bits));
+}
+async function makeHash(pass){
+  const salt = toHex(crypto.getRandomValues(new Uint8Array(16)));
+  return `pbkdf2$${PBKDF2_ITERS}$${salt}$${await pbkdf2(pass, salt, PBKDF2_ITERS)}`;
+}
+async function verifyPass(pass, stored){
+  const [alg, iters, salt, hash] = stored.split('$');
+  if(alg !== 'pbkdf2' || !salt || !hash) return false;
+  const h = await pbkdf2(pass, salt, +iters);
+  let diff = h.length ^ hash.length;
+  for(let i=0; i<Math.min(h.length, hash.length); i++) diff |= h.charCodeAt(i) ^ hash.charCodeAt(i);
+  return diff === 0;
+}
+
+function setupMode(){ return !storedHash(); }
 function openLogin(){
-  pwInput.value = ""; pwErr.textContent = "";
+  pwInput.value = ""; pwInput2.value = ""; pwErr.textContent = "";
+  justCreated = false; pwInput.hidden = false;
+  document.getElementById('pwHashOut').hidden = true;
+  const setup = setupMode();
+  document.getElementById('pwTitle').textContent = setup ? "🦝 Set up admin" : "🦝 Admin Access";
+  document.getElementById('pwText').textContent = setup
+    ? "Create an admin password (at least 8 characters). Only a scrambled version of it (a hash) is saved — never the password."
+    : "Enter the admin password to open the admin panel.";
+  pwInput.autocomplete = setup ? "new-password" : "current-password";
+  pwInput2.hidden = !setup;
+  pwGo.textContent = setup ? "Create" : "Unlock";
+  pwGo.disabled = false;
+  if(!cryptoReady()) pwErr.textContent = "Admin needs a secure page (https:// or localhost).";
   loginOverlay.classList.add('show');
   setTimeout(()=>pwInput.focus(), 60);
 }
 document.getElementById('pwCancel').addEventListener('click', ()=> loginOverlay.classList.remove('show'));
 loginOverlay.addEventListener('click', e=>{ if(e.target===loginOverlay) loginOverlay.classList.remove('show'); });
-document.getElementById('pwGo').addEventListener('click', tryLogin);
+pwGo.addEventListener('click', tryLogin);
 pwInput.addEventListener('keydown', e=>{ if(e.key==='Enter') tryLogin(); });
+pwInput2.addEventListener('keydown', e=>{ if(e.key==='Enter') tryLogin(); });
 
-function tryLogin(){
-  if(pwInput.value === ADMIN_PASS){
+async function tryLogin(){
+  if(!cryptoReady() || pwGo.disabled) return;
+  const now = Date.now();
+  if(now < lockUntil){ pwErr.textContent = `Too many tries. Wait ${Math.ceil((lockUntil-now)/1000)}s.`; return; }
+
+  if(justCreated){ justCreated = false; loginOverlay.classList.remove('show'); openAdmin(); return; }
+  if(setupMode()){
+    if(pwInput.value.length < 8){ pwErr.textContent = "Use at least 8 characters."; return; }
+    if(pwInput.value !== pwInput2.value){ pwErr.textContent = "The two passwords don't match."; return; }
+    pwGo.disabled = true; pwErr.textContent = "";
+    const h = await makeHash(pwInput.value);
+    pwInput.value = ""; pwInput2.value = "";
+    localSet(LOCAL_HASH_KEY, h);
+    document.getElementById('pwHashText').value = `const ADMIN_HASH = "${h}";`;
+    document.getElementById('pwHashOut').hidden = false;
+    pwInput.hidden = true; pwInput2.hidden = true;
+    pwGo.textContent = "Open admin"; pwGo.disabled = false; justCreated = true;
+    return;
+  }
+
+  pwGo.disabled = true; pwErr.textContent = "Checking…";
+  const ok = await verifyPass(pwInput.value, storedHash());
+  pwGo.disabled = false;
+  pwInput.value = "";
+  if(ok){
+    failCount = 0; pwErr.textContent = "";
     loginOverlay.classList.remove('show');
     openAdmin();
   }else{
-    pwErr.textContent = "Wrong key. Try again.";
-    pwInput.value = "";
+    failCount++;
+    if(failCount >= 5){ lockUntil = Date.now() + 30000; failCount = 0; pwErr.textContent = "Too many tries. Wait 30s."; }
+    else pwErr.textContent = "Wrong password. Try again.";
     pwInput.focus();
   }
 }
@@ -297,7 +376,7 @@ function tryLogin(){
 const adminPanel = document.getElementById('adminPanel');
 const adminBody = document.getElementById('adminBody');
 const adminTabs = document.getElementById('adminTabs');
-const TABS = ["Hero","About","Skills","Projects","Strip","Contact & Socials"];
+const TABS = ["Hero","About","Skills","Apps","In the lab","Strip","Contact & Socials"];
 let curTab = 0;
 let DRAFT = null;
 
@@ -362,17 +441,17 @@ function buildTab(){
   adminBody.innerHTML = "";
   let html = "";
   if(curTab===0){ // Hero
-    html += `<h3 style="margin:0 0 12px;font-size:15px">Profile photo</h3>
+    html += `<h3 style="margin:0 0 12px;font-size:15px">Hero image</h3>
     <div class="card-edit">
       <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
         <div id="avPrev" style="width:76px;height:76px;border-radius:50%;overflow:hidden;background:var(--bg);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:36px;flex:none">${
-          DRAFT.avatar ? `<img src="${DRAFT.avatar}" style="width:100%;height:100%;object-fit:cover">` : "🦝"
+          DRAFT.avatar ? `<img src="${DRAFT.avatar}" style="width:100%;height:100%;object-fit:cover">` : `<img src="assets/logo.png" style="width:100%;height:100%;object-fit:contain;padding:6px">`
         }</div>
-        <button class="btn mini" id="avUp">📷 Upload my photo</button>
-        <button class="btn mini danger" id="avRm">Use raccoon 🦝 (default)</button>
+        <button class="btn mini" id="avUp">📷 Upload image</button>
+        <button class="btn mini danger" id="avRm">Use AkihiroLabs badge (default)</button>
         <input type="file" id="avFile" accept="image/*" hidden>
       </div>
-      <p style="color:var(--muted);font-size:12px;margin-top:10px">The photo is saved with your content and included in Export JSON. If no photo is set, Byte the raccoon is shown.</p>
+      <p style="color:var(--muted);font-size:12px;margin-top:10px">The photo is saved with your content and included in Export JSON. If no image is set, the AkihiroLabs badge is shown.</p>
     </div>`;
     html += fieldEN_JA("Eyebrow", ["hero","eyebrow"]);
     html += fieldEN_JA("Big title (HTML allowed: <span>, <br>)", ["hero","title"], true);
@@ -424,25 +503,45 @@ function buildTab(){
             <button class="btn mini" data-downproj="${i}" ${i===DRAFT.projects.length-1?'disabled':''}>↓</button>
             <button class="btn mini danger" data-delproj="${i}">Delete</button>
           </span></div>
+        ${fieldPlain("Logo image path (e.g. assets/app-shiftpay.png) — leave empty to use the icon", ["projects",i,"logo"])}
         ${fieldPlain("Icon (emoji / character)", ["projects",i,"icon"])}
-        ${fieldPlain("Project title", ["projects",i,"title"])}
+        ${fieldPlain("App name", ["projects",i,"title"])}
+        ${fieldPlain("Live URL", ["projects",i,"live"])}
+        ${fieldPlain("GitHub URL", ["projects",i,"repo"])}
         ${fieldEN_JA("Tag", ["projects",i,"tag"])}
         ${fieldEN_JA("Description", ["projects",i,"desc"], true)}
         ${fieldPlain("Tech tags (comma separated)", ["projects",i,"_tech"])}
       </div>`;
     });
-    html += `<button class="add-btn" id="addProj">＋ Add new project</button>`;
+    html += `<button class="add-btn" id="addProj">＋ Add new app</button>`;
   }
-  else if(curTab===4){ // Strip
+  else if(curTab===4){ // In the lab
+    if(!DRAFT.lab) DRAFT.lab = [];
+    if(!DRAFT.labHeading) DRAFT.labHeading = {en:"In the lab",ja:"開発中"};
+    if(!DRAFT.labSub) DRAFT.labSub = {en:"",ja:""};
+    html += fieldEN_JA("Section heading", ["labHeading"]);
+    html += fieldEN_JA("Small line under heading", ["labSub"]);
+    DRAFT.lab.forEach((l,i)=>{
+      html += `<div class="card-edit">
+        <div class="ce-head"><strong>${esc(l.title)||("Item "+(i+1))}</strong>
+          <button class="btn mini danger" data-dellab="${i}">Delete</button></div>
+        ${fieldPlain("Icon (emoji)", ["lab",i,"icon"])}
+        ${fieldPlain("Name", ["lab",i,"title"])}
+        ${fieldEN_JA("Description", ["lab",i,"desc"], true)}
+      </div>`;
+    });
+    html += `<button class="add-btn" id="addLab">＋ Add item</button>`;
+  }
+  else if(curTab===5){ // Strip
     if(typeof DRAFT.strip._items !== 'string') DRAFT.strip._items = DRAFT.strip.items.join(", ");
     html += fieldEN_JA("Strip label (this is also the secret admin button)", ["strip","label"]);
     html += fieldPlain("Products (comma separated)", ["strip","_items"]);
   }
-  else if(curTab===5){ // Contact & socials
+  else if(curTab===6){ // Contact & socials
     html += fieldEN_JA("Heading", ["contact","heading"]);
     html += fieldEN_JA("Text", ["contact","text"], true);
     html += fieldEN_JA("Button label", ["contact","cta"]);
-    html += fieldPlain("Contact email", ["contact","email"]);
+    html += fieldPlain("Button link (https://… or mailto:…)", ["contact","url"]);
     html += `<h3 style="margin:22px 0 12px;font-size:15px">Social links</h3>`;
     DRAFT.socials.forEach((s,i)=>{
       html += `<div class="card-edit">
@@ -505,9 +604,14 @@ function bindListButtons(){
     buildTab();
   });
   adminBody.querySelector('#addProj')?.addEventListener('click', ()=>{
-    DRAFT.projects.push({icon:"🆕",tag:{en:"New",ja:"新規"},title:"New project",desc:{en:"",ja:""},tech:[],_tech:""});
+    DRAFT.projects.push({logo:"",icon:"🆕",tag:{en:"New",ja:"新規"},title:"New app",desc:{en:"",ja:""},tech:[],_tech:"",live:"",repo:""});
     buildTab();
   });
+  adminBody.querySelector('#addLab')?.addEventListener('click', ()=>{
+    DRAFT.lab.push({icon:"🧪",title:"New project",desc:{en:"",ja:""}});
+    buildTab();
+  });
+  adminBody.querySelectorAll('[data-dellab]').forEach(b=>b.addEventListener('click',()=>{ DRAFT.lab.splice(+b.dataset.dellab,1); buildTab(); }));
   adminBody.querySelector('#addSoc')?.addEventListener('click', ()=>{
     DRAFT.socials.push({icon:"🔗",label:"New link",url:"#"});
     buildTab();
@@ -550,10 +654,10 @@ document.getElementById('btnExport').addEventListener('click', ()=>{
   const blob = new Blob([JSON.stringify(DATA, null, 2)], {type:"application/json"});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = "portfolio-data.json";
+  a.download = "akihirolabs-site-data.json";
   a.click();
   URL.revokeObjectURL(a.href);
-  setStatus("Exported portfolio-data.json — keep it as a backup.");
+  setStatus("Exported akihirolabs-site-data.json — keep it as a backup.");
 });
 
 document.getElementById('btnImport').addEventListener('click', ()=> document.getElementById('importFile').click());
