@@ -1,7 +1,7 @@
-<h1 align="center">Zayar Thet Tun — Portfolio</h1>
+<h1 align="center">AkihiroLabs — Portfolio</h1>
 
 <p align="center">
-  Personal portfolio site of Zayar Thet Tun (ゼーアテットン), a student web developer in Tokyo.<br>
+  Personal portfolio site of Akihiro, a student web developer in Tokyo.<br>
   English / 日本語 — editable in the browser, no backend.
 </p>
 
