@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zayar Thet Tun — Web Developer</title>
+<title>AkihiroLabs — Local-first web apps from Tokyo</title>
+<meta name="description" content="AkihiroLabs is a one-person indie studio in Tokyo building lightweight, local-first web apps in English, 日本語 and မြန်မာ.">
+<meta name="author" content="AkihiroLabs">
+<meta name="theme-color" content="#1E3A8A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AkihiroLabs — Local-first web apps from Tokyo">
+<meta property="og:description" content="Small, useful apps that run in your browser and keep your data on your device.">
+<meta property="og:image" content="https://akihirozayar.github.io/my-portfolio/assets/logo.png">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -12,7 +21,7 @@
 
 <nav>
   <div class="wrap nav-in">
-    <a href="#top" class="logo"><span class="mark">&lt;/&gt;</span> Zayar Thet Tun</a>
+    <a href="#top" class="logo" aria-label="AkihiroLabs home"><img src="assets/wordmark.png" alt="AkihiroLabs" width="226" height="30"></a>
     <div class="nav-links" id="navLinks"></div>
     <div class="nav-right">
       <button class="lang-btn" id="langBtn">日本語</button>
@@ -29,7 +38,7 @@
       <p class="hero-sub" id="heroSub"></p>
       <a href="#about" class="scroll-btn" aria-label="Scroll down">↓</a>
     </div>
-    <div class="avatar" id="avatar">🦝</div>
+    <div class="avatar" id="avatar"><img class="studio" src="assets/logo.png" alt="AkihiroLabs"></div>
     <div class="hero-side" id="heroSide"></div>
   </div>
 </header>
@@ -54,19 +63,21 @@
   </div>
 </div>
 
-<section id="skills">
-  <div class="wrap">
-    <div class="sec-label" id="skillsLabel"></div>
-    <h2 class="reveal" id="skillsHeading"></h2>
-    <div class="skills-grid" id="skillsGrid"></div>
-  </div>
-</section>
-
 <section id="projects">
   <div class="wrap">
     <div class="sec-label" id="projLabel"></div>
     <h2 class="reveal" id="projHeading"></h2>
     <div class="proj-grid" id="projGrid"></div>
+    <h3 class="sub-head reveal" id="labHeading"></h3>
+    <div class="lab-grid" id="labGrid"></div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-label" id="skillsLabel"></div>
+    <h2 class="reveal" id="skillsHeading"></h2>
+    <div class="skills-grid" id="skillsGrid"></div>
   </div>
 </section>
 
@@ -89,10 +100,15 @@
 <!-- Admin login modal -->
 <div class="overlay" id="loginOverlay">
   <div class="modal">
-    <h3>🦝 Admin Access</h3>
-    <p>Enter the owner key to open the admin panel.</p>
-    <input type="password" id="pwInput" inputmode="numeric" autocomplete="off" placeholder="••••••">
+    <h3 id="pwTitle">🦝 Admin Access</h3>
+    <p id="pwText">Enter the admin password to open the admin panel.</p>
+    <input type="password" id="pwInput" autocomplete="current-password" placeholder="Password" aria-label="Password">
+    <input type="password" id="pwInput2" autocomplete="new-password" placeholder="Repeat password" aria-label="Repeat password" hidden>
     <div class="err" id="pwErr"></div>
+    <div class="hash-out" id="pwHashOut" hidden>
+      <p>Saved for this browser. To use this password on every browser, replace the <code>ADMIN_HASH</code> line in <code>js/script.js</code> with:</p>
+      <textarea id="pwHashText" readonly rows="3" aria-label="ADMIN_HASH line"></textarea>
+    </div>
     <div class="btn-row">
       <button class="btn" id="pwCancel">Cancel</button>
       <button class="btn primary" id="pwGo">Unlock</button>
@@ -103,7 +119,7 @@
 <!-- Admin panel -->
 <div class="admin" id="adminPanel">
   <div class="admin-head">
-    <h3><span class="dot"></span> Akihiro Labs — Admin Panel</h3>
+    <h3><span class="dot"></span> AkihiroLabs — Admin Panel</h3>
     <button class="btn mini" id="adminClose">✕ Close</button>
   </div>
   <div class="admin-tabs" id="adminTabs"></div>
