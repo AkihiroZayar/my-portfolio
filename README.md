@@ -6,7 +6,7 @@
 
 <p align="center">
   The home of AkihiroLabs, a one-person indie studio in Tokyo building lightweight, local-first web apps.<br>
-  English / 日本語 — editable in the browser, no backend.
+  English / 日本語
 </p>
 
 <p align="center">
@@ -30,51 +30,6 @@ Live: **https://akihirozayar.github.io/my-portfolio/**
 | <img src="assets/app-numconv.png" width="40"> | [NumConv](https://github.com/AkihiroZayar/numconv) | Number system converter with steps and a quiz |
 | <img src="assets/app-cyber-clock.png" width="40"> | [Cyber Clock](https://github.com/AkihiroZayar/cyber-clock) | Neon desk clock with focus mode |
 | <img src="assets/app-utility-bot.png" width="40"> | [Byte Utility](https://github.com/AkihiroZayar/utility-bot) | The AkihiroLabs Discord bot |
-
-## ✨ Features
-
-- **Bilingual** — switch between English and Japanese; the choice is remembered
-- **Sections** — hero, studio, apps (with live + GitHub links), in the lab, toolbox and community
-- **Built-in admin panel** — edit every text, app and link right in the page (triple-click the "AkihiroLabs apps" label)
-- **Safe admin password** — only a salted PBKDF2 hash is stored, never the password. The first time you open the admin you create a password; the setup screen shows an `ADMIN_HASH` line you can paste into `js/script.js` so it works on every browser
-- **Import / export** — back up or move your content as a JSON file
-- **No backend** — admin edits are stored in your own browser (`localStorage`); visitors always see the defaults in `js/script.js`
-
-## 🚀 Getting started
-
-No build step is needed.
-
-1. Download or clone this repository.
-2. Open `index.html` in any modern browser.
-
-To change what visitors see, edit `DEFAULT_DATA` in `js/script.js` and push.
-
-## 📁 Project structure
-
-```
-my-portfolio/
-├── index.html            # Page markup — links the CSS and JS
-├── css/
-│   └── style.css         # Styles (AkihiroLabs light theme)
-├── js/
-│   ├── version.js        # APP_VERSION
-│   └── script.js         # Content, i18n, rendering, admin panel
-├── assets/
-│   ├── wordmark.png · logo.png          # AkihiroLabs brand art
-│   ├── favicon.png · apple-touch-icon.png
-│   └── app-*.png                        # App logos
-├── .github/workflows/
-│   ├── ci.yml            # HTML validation on every push
-│   └── cd.yml            # Deploy to GitHub Pages
-├── CHANGELOG.md
-└── README.md
-```
-
-## 🛠 Tech
-
-- Vanilla JavaScript, HTML and CSS — no frameworks, no build tools
-- GitHub Actions for HTML validation and GitHub Pages deployment
-- Google Fonts (Archivo, Inter)
 
 ## 🔖 Versioning
 
